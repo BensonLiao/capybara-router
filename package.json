@@ -1,7 +1,7 @@
 {
   "name": "capybara-router",
   "version": "2.2.0",
-  "description": "A simple react router without flux and redux.",
+  "description": "A simple react router without flux and redux. test",
   "main": "index.js",
   "scripts": {
     "start": "concurrently --kill-others \"node_modules/nodemon/bin/nodemon.js example/server.js --watch example/server.js\" \"node_modules/webpack-dev-server/bin/webpack-dev-server.js\"",
