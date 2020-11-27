@@ -43,7 +43,7 @@ test('Link component render with object props.', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Link component render with object props without params.', () => {
+test('Link component render with object props that has no params.', () => {
   const route = new Route({
     name: 'web',
     uri: '/web?index'
