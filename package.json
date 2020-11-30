@@ -1,6 +1,6 @@
 {
   "name": "@benson.liao/capybara-router",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "A simple react router without flux and redux.",
   "main": "index.js",
   "publishConfig": {
