@@ -46,19 +46,19 @@ test('Link component render with object props.', () => {
 test('Link component render with object props that has no params.', () => {
   const route = new Route({
     name: 'web',
-    uri: '/web?index'
+    uri: '/web'
   });
   jest.spyOn(utils, 'findRouteByNameInRoutes').mockImplementation(name => {
     expect(name).toBe('web');
     return route;
   });
-  jest.spyOn(route, 'generateUri').mockImplementation(() => '/web?index=0');
+  jest.spyOn(route, 'generateUri').mockImplementation(() => '/web');
   const component = renderer.create(
     <Link to={{name: 'web'}}>Web</Link>
   );
   const tree = component.toJSON();
   expect(utils.findRouteByNameInRoutes).toBeCalled();
-  expect(route.generateUri).toBeCalledWith(undefined);
+  expect(route.generateUri).toBeCalled();
   expect(tree).toMatchSnapshot();
 });
 

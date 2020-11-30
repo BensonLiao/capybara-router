@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Link component render with object props without params. 1`] = `
+exports[`Link component render with object props that has no params. 1`] = `
 <a
-  href="/web?index=0"
+  href="/web"
   onClick={[Function]}
 >
   Web
