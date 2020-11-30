@@ -1,6 +1,6 @@
 # capybara-router
-[![npm](https://img.shields.io/npm/v/@benson.liao/capybara-router?color=green)](https://www.npmjs.com/package/@benson.liao/capybara-router)
-[![Coverage Status](https://img.shields.io/coveralls/github/BensonLiao/capybara-router?color=green)](https://coveralls.io/github/BensonLiao/capybara-router)
+[![npm](https://img.shields.io/npm/v/@benson.liao/capybara-router?color=brightgreen)](https://www.npmjs.com/package/@benson.liao/capybara-router)
+[![Coverage Status](https://img.shields.io/coveralls/github/BensonLiao/capybara-router?color=brightgreen)](https://coveralls.io/github/BensonLiao/capybara-router)
 [![test and upload coveralls](https://github.com/BensonLiao/capybara-router/workflows/test%20and%20upload%20coveralls/badge.svg)](https://github.com/BensonLiao/capybara-router/actions?query=workflow%3A%22test+and+upload+coveralls%22)
   
 This is a react router without flux and redux.  
