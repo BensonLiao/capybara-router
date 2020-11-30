@@ -1,7 +1,7 @@
 # capybara-router
-[![npm version](https://badge.fury.io/js/capybara-router.svg)](https://www.npmjs.com/package/capybara-router)
-[![Coverage Status](https://coveralls.io/repos/github/kelp404/capybara-router/badge.svg)](https://coveralls.io/github/kelp404/capybara-router)
-[![Actions Status](https://github.com/kelp404/capybara-router/workflows/test%20and%20upload%20coveralls/badge.svg)](https://github.com/kelp404/capybara-router/actions)
+[![npm](https://img.shields.io/npm/v/@benson.liao/capybara-router)](https://www.npmjs.com/package/@benson.liao/capybara-router)
+[![Coverage Status](https://img.shields.io/coveralls/github/BensonLiao/capybara-router?color=green)](https://coveralls.io/github/BensonLiao/capybara-router)
+[![test and upload coveralls](https://github.com/BensonLiao/capybara-router/workflows/test%20and%20upload%20coveralls/badge.svg)](https://github.com/BensonLiao/capybara-router/actions?query=workflow%3A%22test+and+upload+coveralls%22)
   
 This is a react router without flux and redux.  
 We just want a simple way to build a Single Page Application.  
@@ -11,7 +11,7 @@ Define rules that include the component and how to fetch data of the each page i
 
 ## Installation
 ```bash
-npm install capybara-router --save
+npm i @benson.liao/capybara-router
 ```
 
 
