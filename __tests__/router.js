@@ -50,13 +50,13 @@ afterEach(() => jest.restoreAllMocks());
 test('Going to a page with the URI will push the history state.', () => {
   router.history.push = jest.fn(() => {});
   router.go('/login');
-  expect(router.history.push).toBeCalledWith('/login');
+  expect(router.history.push).toBeCalledWith({pathname: '/login', search: ''});
 });
 
 test('Replace a page with the URI.', () => {
   router.history.replace = jest.fn(() => {});
   router.go('/login', {replace: true});
-  expect(router.history.replace).toBeCalledWith('/login');
+  expect(router.history.replace).toBeCalledWith({pathname: '/login', search: ''});
 });
 
 test('Reload a page with the URI.', () => {
