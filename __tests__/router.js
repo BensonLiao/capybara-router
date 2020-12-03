@@ -72,7 +72,7 @@ test('Going to a page with a route name will push the history state.', () => {
     params: {userId: 'AWgrmJp1SjjuUM2bzZXM', index: 0}
   });
   expect(router.history.push).toBeCalledWith(
-    '/users/AWgrmJp1SjjuUM2bzZXM/projects?index=0',
+    {pathname: '/users/AWgrmJp1SjjuUM2bzZXM/projects?index=0', search: ''},
     {
       name: 'projects',
       params: {index: 0, userId: 'AWgrmJp1SjjuUM2bzZXM'}
@@ -87,7 +87,7 @@ test('Replace a page with a route name.', () => {
     {replace: true}
   );
   expect(router.history.replace).toBeCalledWith(
-    '/users/AWgrmJp1SjjuUM2bzZXM/projects?index=0',
+    {pathname: '/users/AWgrmJp1SjjuUM2bzZXM/projects?index=0', search: ''},
     {
       name: 'projects',
       params: {index: 0, userId: 'AWgrmJp1SjjuUM2bzZXM'}
