@@ -5,6 +5,10 @@ const {Router, RouterView} = require('../../');
 
 let router;
 beforeEach(() => {
+  // Hide console.error while testing errors with jest
+  jest.spyOn(console, 'error');
+  console.error.mockImplementation(() => null);
+
   router = new Router({
     history: history.createMemoryHistory({initialEntries: ['/']}),
     routes: [
@@ -13,6 +17,8 @@ beforeEach(() => {
   });
   router.start();
 });
+
+afterEach(() => console.error.mockRestore());
 
 test('RouterView component render.', () => {
   const component = renderer.create(<RouterView>Loading</RouterView>);

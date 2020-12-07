@@ -9,6 +9,11 @@ const historyActions = require('../lib/constants/history-actions');
 
 let router;
 beforeEach(() => {
+  // Hide console.error while testing errors with jest
+  // ref: https://github.com/facebook/jest/pull/5267#issuecomment-356605468
+  jest.spyOn(console, 'error');
+  console.error.mockImplementation(() => null);
+
   router = new Router({
     history: history.createMemoryHistory({initialEntries: ['/']}),
     routes: [
@@ -45,7 +50,10 @@ beforeEach(() => {
     errorComponent: () => <div>Error</div>
   });
 });
-afterEach(() => jest.restoreAllMocks());
+afterEach(() => {
+  console.error.mockRestore();
+  jest.restoreAllMocks();
+});
 
 test('Going to a page with the URI will push the history state.', () => {
   router.history.push = jest.fn(() => {});
