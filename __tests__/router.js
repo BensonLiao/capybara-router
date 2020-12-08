@@ -432,6 +432,24 @@ test('Get a null error when reload the page.', () => {
   });
 });
 
+test('Get a type error when routing to another page.', () => {
+  const onChangeError = jest.fn(() => {});
+  const unsubscribe = router.listen('ChangeError', onChangeError);
+  router.start();
+  renderer.create(<RouterView>Loading</RouterView>);
+  return router.promise.then(() => {
+    jest.spyOn(require('../lib/utils'), 'fetchResolveData')
+      .mockImplementation(() => Promise.reject(new TypeError()));
+    router.routes[0].onEnter = jest.fn(() => {});
+    router.go('/settings');
+    return router.promise;
+  })
+    .finally(() => {
+      unsubscribe();
+      expect(onChangeError).not.toBeCalled();
+    });
+});
+
 test('Render the error page.', () => {
   router.start();
   const component = renderer.create(<RouterView>Loading</RouterView>);
