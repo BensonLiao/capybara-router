@@ -418,6 +418,44 @@ test('Get an error when reload the page.', () => {
   });
 });
 
+test('Get a null previous route when routing to another page.', () => {
+  let onChangeStartNext = null;
+  const onChangeStart = jest.fn((action, toState, fromState, next) => {
+    onChangeStartNext = next;
+    next();
+  });
+  const onChangeError = jest.fn(() => {});
+  const unsubscribeChangeStart = router.listen('ChangeStart', onChangeStart);
+  const unsubscribeChangeError = router.listen('ChangeError', onChangeError);
+  router.start();
+  renderer.create(<RouterView>Loading</RouterView>);
+  return router.promise.then(() => {
+    router.routes[0].onEnter = jest.fn(() => {});
+    router.go('/settings');
+    router.currentRoute = null;
+    return router.promise;
+  })
+    .then(() => {
+      expect(onChangeStart).toHaveBeenLastCalledWith(
+        historyActions.PUSH,
+        {
+          name: 'settings.account',
+          params: {}
+        },
+        {
+          name: 'home',
+          params: {}
+        },
+        onChangeStartNext
+      );
+    })
+    .finally(() => {
+      unsubscribeChangeStart();
+      unsubscribeChangeError();
+      expect(onChangeError).not.toBeCalled();
+    });
+});
+
 test('Get a null error when reload the page.', () => {
   jest.spyOn(require('../lib/utils'), 'fetchResolveData')
     .mockImplementation(() => Promise.reject(new errors.URLChangedError()));
